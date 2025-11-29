@@ -1,0 +1,38 @@
+name: 10CLDR - Trabalho Final DevOps - CI/CD Pipeline
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # --- STEP 1: CHECKOUT & SETUP ---
+      - name: 1. Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar Dependências
+        run: npm ci
+
+      # --- STEP 2: QUALIDADE (LINT) ---
+      - name: 2. Verificação de Código (Lint)
+        run: npm run lint
+
+      # --- STEP 3: BUILD & DEPLOY ---
+      - name: 3. Build da Aplicação
+        run: npm run build
+
+      - name: Deploy para GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
