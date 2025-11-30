@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "echo 'Simulando Testes de Integracao...' && exit 0"
   },
-  },
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
