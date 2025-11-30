@@ -3,6 +3,8 @@ name: DevOps Trabalho - CI/CD Pipeline
 on:
   push:
     branches: ["main"]
+  # Adiciona botão para rodar manualmente na aba Actions
+  workflow_dispatch:
 
 permissions:
   contents: write
