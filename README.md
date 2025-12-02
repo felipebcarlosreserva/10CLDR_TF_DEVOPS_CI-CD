@@ -1,24 +1,80 @@
 ![CI/CD Pipeline](https://github.com/felipebcarlos/10CLDR_TF_DEVOPS_CI-CD/actions/workflows/pipeline.yml/badge.svg)
 
-# Trabalho Final - DevOps (Turma 10CLDR)
+# Trabalho Final - DevSecOps (Turma 10CLDR)
 
-Este repositório contém a entrega do trabalho final da disciplina de DevOps CI/CD.
+Este repositório contém a entrega do trabalho final da disciplina de DevOps CI/CD. O projeto consiste em uma aplicação web moderna integrada a um pipeline completo de **DevSecOps** (Desenvolvimento, Segurança e Operações).
 
-## 📋 Sobre o Projeto
-Uma aplicação web estática desenvolvida com **React** e **Vite**, utilizando um pipeline automatizado de CI/CD via **GitHub Actions** para realizar testes de qualidade e deploy automático no **GitHub Pages**.
+## 🔗 Links do Projeto
+* **[Acesse a Aplicação no Ar (GitHub Pages)](https://felipebcarlos.github.io/10CLDR_TF_DEVOPS_CI-CD/)**
+* [Visualizar Pipeline no GitHub Actions](https://github.com/felipebcarlos/10CLDR_TF_DEVOPS_CI-CD/actions)
 
-## 🚀 Tecnologias Utilizadas
-* [React](https://react.dev/)
-* [Vite](https://vitejs.dev/)
-* [GitHub Actions](https://github.com/features/actions) (Automação)
-* [GitHub Pages](https://pages.github.com/) (Hospedagem)
+---
 
-## 🔗 Link do Projeto
-* **[Acesse a Aplicação Online](https://felipebcarlos.github.io/10CLDR_TF_DEVOPS_CI-CD/)**
+## 🛠️ Stack Tecnológico
 
-## ⚙️ Estrutura do Pipeline (3 Steps)
-O fluxo de CI/CD foi configurado para executar automaticamente a cada `push` na branch `main`:
+O projeto utiliza as seguintes tecnologias e ferramentas:
 
-1.  **Checkout & Setup:** Baixa o código fonte e prepara o ambiente Node.js.
-2.  **Lint & Quality:** Verifica a integridade do código e padrões de escrita.
-3.  **Build & Deploy:** Gera a versão de produção e publica no GitHub Pages.
+### Frontend
+* **[React](https://react.dev/)**: Biblioteca JavaScript para construção de interfaces.
+* **[Vite](https://vitejs.dev/)**: Ferramenta de build extremamente rápida.
+* **[Node.js](https://nodejs.org/)**: Ambiente de execução JavaScript.
+
+### CI/CD & Infraestrutura
+* **[GitHub Actions](https://github.com/features/actions)**: Orquestrador de workflows de CI/CD.
+* **[GitHub Pages](https://pages.github.com/)**: Hospedagem estática gratuita e automatizada.
+
+### Qualidade de Código (QA)
+* **[ESLint](https://eslint.org/)**: Ferramenta de Linter para análise estática e padronização de código.
+* **Integration Tests**: Scripts automatizados para validação de integração.
+
+### Segurança (Sec)
+* **[Trivy](https://aquasecurity.github.io/trivy/)** (SAST): Scanner de segurança para encontrar vulnerabilidades no código fonte e segredos expostos.
+* **[NPM Audit](https://docs.npmjs.com/cli/v8/commands/npm-audit)** (SCA): Análise de vulnerabilidades nas dependências do projeto.
+* **[OWASP ZAP](https://www.zaproxy.org/)** (DAST): Scanner de segurança dinâmica que ataca a aplicação em execução para encontrar falhas de segurança web.
+
+---
+
+## ⚙️ Arquitetura do Pipeline
+
+O pipeline foi desenhado seguindo as melhores práticas de mercado, dividindo o fluxo em **6 Jobs** distintos:
+
+### 1. 🛡️ Qualidade (Quality)
+Executa a verificação de sintaxe (`Lint`) e testes de integração. Garante que o código está limpo antes de prosseguir.
+
+### 2. 🔒 Segurança Estática (SAST)
+Roda em paralelo com a Qualidade.
+* Executa o **NPM Audit** para checar bibliotecas inseguras.
+* Executa o **Trivy** para varrer o código em busca de senhas expostas (Secrets) e falhas de segurança.
+
+### 3. 📦 Build
+Compila a aplicação React para produção. Este passo só inicia se os jobs de *Qualidade* e *SAST* forem aprovados. O artefato gerado é salvo para uso posterior.
+
+### 4. 🚀 Deploy
+Baixa o artefato construído e realiza a publicação automática no ambiente de produção (**GitHub Pages**).
+
+### 5. 🩺 Smoke Test (Health Check)
+Após o deploy, executa validações rápidas (`curl`) para garantir que o site está respondendo corretamente (HTTP 200 OK) e está acessível publicamente.
+
+### 6. 🕷️ Segurança Dinâmica (DAST)
+Com o site no ar, o **OWASP ZAP** realiza um scan automatizado na URL pública em busca de vulnerabilidades de tempo de execução (como falta de cabeçalhos de segurança, XSS, etc).
+
+---
+
+## 💻 Como rodar localmente
+
+Para executar este projeto na sua máquina, siga os passos abaixo:
+
+1. Clone o repositório:
+```bash
+git clone [https://github.com/felipebcarlos/10CLDR_TF_DEVOPS_CI-CD.git](https://github.com/felipebcarlos/10CLDR_TF_DEVOPS_CI-CD.git)
+
+2. Entre na pasta e instale as dependências:
+```bash
+cd 10CLDR_TF_DEVOPS_CI-CD
+npm install
+
+3. Execute o servidor de desenvolvimento:
+```bash
+npm run dev
+
+O projeto estará disponível em `http://localhost:5173`.
