@@ -25,11 +25,11 @@ function App() {
           <a href="https://nodejs.org/" target="_blank" rel="noreferrer" className="tech-link">NodeJs</a>,{' '}
           <a href="https://vitejs.dev/" target="_blank" rel="noreferrer" className="tech-link">Vite</a>,{' '}
           <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" rel="noreferrer" className="tech-link">JavaScript</a>,{' '}
-          <a href="https://react.dev/" target="_blank" rel="noreferrer" className="tech-link">React</a> e{' '}
-          <a href="https://github.com/" target="_blank" rel="noreferrer" className="tech-link">Github</a>.
-          <a href="https://eslint.org/" target="_blank" rel="noreferrer" className="tech-link">ESLint</a>.
-          <a href="https://aquasecurity.github.io/trivy/" target="_blank" rel="noreferrer" className="tech-link">Trivy</a>.
-          <a href="https://docs.npmjs.com/cli/v8/commands/npm-audit" target="_blank" rel="noreferrer" className="tech-link">NPM Audit</a>.
+          <a href="https://react.dev/" target="_blank" rel="noreferrer" className="tech-link">React</a>,{' '}
+          <a href="https://github.com/" target="_blank" rel="noreferrer" className="tech-link">Github</a>,{' '}
+          <a href="https://eslint.org/" target="_blank" rel="noreferrer" className="tech-link">ESLint</a>,{' '}
+          <a href="https://aquasecurity.github.io/trivy/" target="_blank" rel="noreferrer" className="tech-link">Trivy</a>,{' '}
+          <a href="https://docs.npmjs.com/cli/v8/commands/npm-audit" target="_blank" rel="noreferrer" className="tech-link">NPM Audit</a> e{' '}
           <a href="https://www.zaproxy.org/" target="_blank" rel="noreferrer" className="tech-link">OWASP ZAP</a>.
         </p>
 
