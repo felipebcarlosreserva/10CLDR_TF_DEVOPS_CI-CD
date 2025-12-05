@@ -10,6 +10,28 @@ Este repositório contém a entrega do trabalho final da disciplina de DevOps CI
 
 ---
 
+## 🚀 Como usar este projeto como base
+
+Se você é aluno e quer usar este projeto para estudar ou criar sua própria versão, siga os passos abaixo:
+
+### 1. Copiar o Repositório (Fork)
+Clique no botão **"Fork"** no canto superior direito desta página para criar uma cópia deste repositório na sua conta do GitHub.
+
+### 2. Configurar o Repositório
+No seu novo repositório copiado:
+1. Vá em **Settings** > **Actions** > **General**.
+2. Em "Workflow permissions", selecione **Read and write permissions** e salve.
+
+### 3. Habilitar o Pipeline
+Por segurança, o GitHub desativa Actions em forks.
+1. Vá na aba **Actions**.
+2. Clique no botão verde **"I understand my workflows, go ahead and enable them"**.
+
+### 4. Rodar o Deploy
+Faça qualquer alteração no código (ex: edite o `README.md` ou o `App.jsx`) e faça um `git push`. O pipeline rodará automaticamente e publicará seu site!
+
+---
+
 ## 🛠️ Stack Tecnológico
 
 O projeto utiliza as seguintes tecnologias e ferramentas:
